@@ -1,0 +1,24 @@
+node-if.FuncID          1  <= 1:strncmp;else:node_free;
+node_free-if.FuncID     1  <= 2:free;else:node_memcpy;
+node_memcpy-if.FuncID   1  <= 3:memcpy;else:node_strcpy;
+node_strcpy-if.FuncID   1  <= 4:strcpy;else:node_fprintf;
+node_fprintf-if.FuncID  1  <= 5:fprintf;else:system;
+
+strncmp-=1
+
+free-if.mem             12 <= 0:free_0_true;else:free_0_false;
+free_0_true-=2
+free_0_false-=3
+
+memcpy-=4
+
+strcpy-=5
+
+fprintf-if.stream       12 <= 0:fprintf_0_true;else:fprintf_1;
+fprintf_1-if.format     14 <= 0:fprintf_0_true;else:fprintf_1_false;
+fprintf_0_true-=6
+fprintf_1_false-=7
+
+system-if.command       12 <= 0:system_0_true;else:system_0_false;
+system_0_true-=8
+system_0_false-=9

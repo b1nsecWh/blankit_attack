@@ -1,0 +1,6 @@
+strncmp,1
+free,2
+memcpy,3
+strcpy,4
+fprintf,5
+system,6

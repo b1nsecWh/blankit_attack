@@ -1,0 +1,10 @@
+
+;strncmp;,1
+;free;__libc_free;__sigaction;vfwprintf;__backtrace;strerror_r;strchrnul;abort;__madvise;__assert;vfprintf;getenv;_IO_fflush;__assert_fail;free;mmap;wcschrnul;_IO_setb;tcgetattr;munmap;__backtrace_symbols_fd;brk;sigprocmask;secure_getenv;sbrk;isatty;fcloseall;raise;__dcgettext;_IO_flush_all;__default_morecore;,2
+;free;__libc_free;,3
+;memcpy;,4
+;strcpy;,5
+;fprintf;,6
+;__libc_fatal;strchrnul;__libc_scratch_buffer_grow_preserve;mmap;abort;__madvise;_IO_padn;__woverflow;__assert;munmap;malloc;__dcgettext;vfprintf;strerror_r;__assert_fail;__libc_alloca_cutoff;__overflow;fprintf;free;_IO_fprintf;,7
+;system;__libc_system;,8
+;__libc_fatal;system;__libc_system;sigprocmask;sigaction;execve;__sigaction;__waitpid;waitpid;,9

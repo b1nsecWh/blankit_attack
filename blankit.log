@@ -1,0 +1,104 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~blankit: predict sets~~~~~~~~~~~~~~~~~~~~~~~~~~~
+idx: 0
+
+idx: 1
+  strncmp
+idx: 2
+  _IO_fflush  _IO_flush_all  _IO_setb  __assert  __assert_fail  __backtrace  __backtrace_symbols_fd  __dcgettext  __default_morecore  __libc_free  __madvise  __sigaction  abort  brk  fcloseall  free  getenv  isatty  mmap  munmap  raise  sbrk  secure_getenv  sigprocmask  strchrnul  strerror_r  tcgetattr  vfprintf  vfwprintf  wcschrnul
+idx: 3
+  __libc_free  free
+idx: 4
+  memcpy
+idx: 5
+  strcpy
+idx: 6
+  fprintf
+idx: 7
+  _IO_fprintf  _IO_padn  __assert  __assert_fail  __dcgettext  __libc_alloca_cutoff  __libc_fatal  __libc_scratch_buffer_grow_preserve  __madvise  __overflow  __woverflow  abort  fprintf  free  malloc  mmap  munmap  strchrnul  strerror_r  vfprintf
+idx: 8
+  __libc_system  system
+idx: 9
+  __libc_fatal  __libc_system  __sigaction  __waitpid  execve  sigaction  sigprocmask  system  waitpid
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Image name is: /root/blankit_attack/build/example_embedpin
+Image name is: /lib/ld-linux.so.2
+Image name is: [vdso]
+Image name is: /root/blankit_attack/blankit/libblankit.so
+image_load_libblankit()
+Image name is: /lib/i386-linux-gnu/libc.so.6
+	image_load()
+		RTN name:                   strncmp  not adding probe. failed checks.
+		RTN name:                    strcpy  not adding probe. failed checks.
+		RTN name:                    memcpy  not adding probe. failed checks.
+		RTN name:                      free	blanked √
+		RTN name:               __libc_free	blanked √
+		RTN name:                 vfwprintf	blanked √
+		RTN name:               __backtrace	blanked √
+		RTN name:                strerror_r	blanked √
+		RTN name:                     abort	blanked √
+		RTN name:                 __madvise	blanked √
+		RTN name:                  __assert	blanked √
+		RTN name:                    getenv	blanked √
+		RTN name:                _IO_fflush	blanked √
+		RTN name:             __assert_fail	blanked √
+		RTN name:                 wcschrnul	blanked √
+		RTN name:                 tcgetattr	blanked √
+		RTN name:                    munmap	blanked √
+		RTN name:    __backtrace_symbols_fd	blanked √
+		RTN name:             secure_getenv	blanked √
+		RTN name:                    isatty	blanked √
+		RTN name:                 fcloseall	blanked √
+		RTN name:                     raise	blanked √
+		RTN name:               __dcgettext	blanked √
+		RTN name:             _IO_flush_all	blanked √
+		RTN name:                   fprintf	blanked √
+		RTN name:              __libc_fatal	blanked √
+		RTN name:                    system	blanked √
+		RTN name:               sigprocmask	blanked √
+		RTN name:                    execve	blanked √
+		RTN name:                 sigaction	blanked √
+		RTN name:                   waitpid	blanked √
+	done image_load()
+
+probe_blankit_predict()	idx: 1
+probe_blankit_predict()	idx: 3
+probe_copy() 	checking Function: __libc_free	 predict ID:3: 
+===========
+ copy back:               __libc_free	 0xf588c040 => 0xf52f5530 size:162
+===========
+probe_copy() 	__libc_free in copied_funcs
+probe_blankit_predict()	idx: 5
+probe_blankit_predict()	idx: 1
+probe_blankit_predict()	idx: 7
+probe_copy() 	checking Function: _IO_fprintf	 predict ID:7: 
+===========
+ copy back:               _IO_fprintf	 0xf59e7080 => 0xf52cd660 size:14
+ copy back:                  __assert	 0xf59e6058 => 0xf52a8e00 size:18
+ copy back:             __assert_fail	 0xf4f0f008 => 0xf52a8d60 size:50
+ copy back:               __dcgettext	 0xf78ba060 => 0xf52a98a0 size:29
+ copy back:              __libc_fatal	 0xf4f0c010 => 0xf52eb390 size:35
+ copy back:                     abort	 0xf4f121c0 => 0xf52b12c0 size:578
+ copy back:                    munmap	 0xf59e6088 => 0xf5366e90 size:22
+ copy back:                strerror_r	 0xf4f13030 => 0xf52f94e0 size:355
+===========
+probe_blankit_predict()	idx: 9
+probe_copy() 	checking Function: __libc_system	 predict ID:9: 
+===========
+ copy back:              __libc_fatal	 0xf4f0c010 => 0xf52eb390 size:35
+ copy back:             __libc_system	 0xf78c7070 => 0xf52bedb0 size:41
+ copy back:                    execve	 0xf59e60b8 => 0xf53348c0 size:24
+ copy back:                 sigaction	 0xf78c70a0 => 0xf52b0090 size:46
+ copy back:               sigprocmask	 0xf4f0b010 => 0xf52b00d0 size:118
+ copy back:                   waitpid	 0xf4f0d088 => 0xf53341e0 size:87
+===========
+probe_copy() 	sigaction in copied_funcs
+probe_copy() 	sigaction in copied_funcs
+probe_copy() 	sigprocmask in copied_funcs
+probe_copy() probe_copy() 	waitpid in copied_funcs
+	sigaction in copied_funcs
+probe_copy() 	sigaction in copied_funcs
+probe_copy() 	sigprocmask in copied_funcs
+probe_copy() 	execve in copied_funcs
+probe_copy() 	sigaction in copied_funcs
+probe_copy() 	sigaction in copied_funcs
+probe_copy() 	sigprocmask in copied_funcs
